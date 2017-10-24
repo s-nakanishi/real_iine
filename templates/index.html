@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <title>いいね！ランキング</title>
+  </head>
+  <body>
+{% block content %}
+<script src="http://ccchart.com/js/ccchart.js" charset="utf-8"></script>
+<canvas id="rank"></canvas>
+<script>
+setTimeout("location.reload()",1000*5);
+
+var chartdata2 = {
+
+  "config": {
+    "title": "いいね！ランキング",
+    "type": "line",
+    "width": 1000,
+    "height": 600,
+    "axisYLen": 100,
+    "lineWidth": 4,
+    "colorSet": 
+          ["#222222", "red","#FF9114","#3CB000","#00A8A2","#0036C0","#C328FF","#FF34C0"],
+    "bgGradient": {
+            "direction":"vertical",
+            "from":"#687478",
+            "to":"#222222"
+          },
+    "useMarker": "css-ring",
+    "markerWidth": 12
+  },
+
+  "data": [
+    ["時間",9, 10,11,12,13,14,15,16,17],
+    ["",100,100,100,100,100,100,100,100,100],
+    {% for name in names %}
+      ["{{ name }}", 0, {% for data in datas[loop.index0] %} {{ data }}, {% endfor %}],
+    {% endfor %}
+  ]
+};
+ccchart.init('rank', chartdata2)
+</script>
+{% endblock %}
+  </body>
+</html>

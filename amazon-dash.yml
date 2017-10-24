@@ -1,0 +1,11 @@
+settings:
+  delay: 1
+devices:
+  b4:7c:9c:f2:e4:65:
+    name: group1 
+    user: shinya
+    cmd: python /Users/shinya/work/python/dash/database.py group1 
+  ac:63:be:bb:a9:47:
+    name: group2 
+    user: shinya
+    cmd: python /Users/shinya/work/python/dash/database.py group2 
